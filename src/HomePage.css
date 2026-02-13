@@ -1,0 +1,34 @@
+body{
+    background-color: #deeaca;
+    font-family: Arial, sans-serif;
+}
+img {
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+}
+/* HomePage.css */
+
+.fondo-responsivo {
+    /* Usamos la variable que pasamos desde React */
+    background-image: var(--imagen-fondo);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ffe6eb; /* Color de fondo para los bordes */
+    
+    /* --- CONFIGURACIÓN PARA PC (Tu gusto actual) --- */
+    background-size: contain; /* O usa 80% si prefieres */
+}
+
+/* --- CONFIGURACIÓN PARA MÓVIL (iPhone, Android) --- */
+/* Esta regla se activa solo si la pantalla mide menos de 768px de ancho */
+@media (max-width: 768px) {
+    .fondo-responsivo {
+        /* En el celular, queremos que cubra TODO para que se vea impactante */
+        background-size: cover !important;
+        
+        /* Ajuste opcional para iPhones: */
+        /* Si las caras están arriba, usa 'center top'. Si no, 'center' */
+        background-position: center center !important; 
+    }
+}
