@@ -1,4 +1,3 @@
-
 import foto from "./assets/image1.png"; 
 import './PaginaSi.css'; // ¡Importante importar el CSS!
 

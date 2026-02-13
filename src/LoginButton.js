@@ -1,4 +1,3 @@
-import React from 'react'; // No olvides importar React si es necesario en tu versión
 import foto from "./assets/image2.png";
 import './LoginButton.css';
 

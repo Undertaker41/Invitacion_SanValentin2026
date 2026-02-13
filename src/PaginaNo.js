@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import foto from "./assets/image.png"; 
 import fondoPantalla from "./assets/image4.png"; 
 
 function HomePage() {

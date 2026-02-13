@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
 import HomePage from './HomePage';
-import Hola from './Hola';
 import PaginaSi from './PaginaSi';
 import PaginaNo from './PaginaNo';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route,} from "react-router-dom";
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
 
