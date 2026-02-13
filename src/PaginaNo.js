@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import fondoPantalla from "./assets/image4.png"; 
 
 function HomePage() {
     const [seleccion, setSeleccion] = useState(null);
@@ -8,110 +7,114 @@ function HomePage() {
 
     const clickSi = () => {
         setSeleccion('SI');
-        setTimeout(() => navigate('/si'), 1000);
+        setTimeout(() => navigate('/si'), 600);
     };
 
     const clickNo = () => {
         setSeleccion('NO');
-        setTimeout(() => navigate('/si'), 1000);
+        setTimeout(() => navigate('/si'), 600);
     };
 
-    // --- ESTILOS ---
+    // --- ESTILOS MEJORADOS ---
 
-    // 1. EL FONDO COMO IMAGEN FÍSICA (ESTRATEGIA NUEVA)
-    const estiloImagenFondo = {
-        position: 'fixed',  // Clavado a la ventana
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',     // Ocupa todo el alto visible
-        objectFit: 'cover', // Se comporta igual que background-size: cover
-        zIndex: -1,         // Se va al fondo detrás de todo
-        backgroundColor:'AntiqueWhite', // Color de fondo para evitar parpadeos en móviles
-        
-        // TRUCOS PARA EVITAR EL BAILE EN IPHONE:
-        transform: 'translateZ(0)', // Fuerza al celular a usar la tarjeta gráfica (GPU)
-        willChange: 'transform'     // Le avisa al navegador que esto no debe moverse
-    };
-
-    // 2. EL CONTENEDOR DE TU APP
-    const estiloContenido = {
-        position: 'absolute', // Flota sobre la imagen
+    const estiloFondoAnimado = {
+        position: 'fixed',
         top: 0,
         left: 0,
         width: '100%',
         height: '100%',
+        zIndex: -1,
+        background: 'linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    };
+
+    const estiloTarjetaCentral = {
+        backgroundColor: 'white',
+        padding: '40px',
+        borderRadius: '20px',
+        border: '4px solid black',
+        boxShadow: '10px 10px 0px black', // Efecto Neo-brutalista
+        textAlign: 'center',
+        maxWidth: '90%',
+        width: '400px'
+    };
+
+    const estiloTitulo = {
+        fontSize: '2rem',
+        fontWeight: '900',
+        marginBottom: '40px',
+        color: 'black',
+        lineHeight: '1.2'
+    };
+
+    const contenedorOpciones = {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'black',
-        overflowY: 'auto' // Permite scroll solo si el contenido es muy largo
+        gap: '20px',
+        alignItems: 'center'
     };
 
-    // --- ESTILOS DE TUS BOTONES ---
-    const estiloCuadro = {
-        width: '40px',
-        height: '40px',
-        border: '3px solid black', 
+    const estiloBotonOpcion = (esSeleccionado) => ({
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        padding: '15px',
+        cursor: 'pointer',
+        border: '3px solid black',
+        borderRadius: '12px',
+        backgroundColor: esSeleccionado ? '#FFDE59' : 'white',
+        transition: 'all 0.2s ease',
+        transform: esSeleccionado ? 'scale(0.98)' : 'none',
+        boxShadow: esSeleccionado ? 'none' : '4px 4px 0px black',
+        color: 'black'
+    });
+
+    const estiloCheckbox = {
+        width: '30px',
+        height: '30px',
+        border: '3px solid black',
+        marginRight: '15px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white', 
-        marginRight: '10px'
-    };
-
-    const estiloX = {
-        color: 'black',
-        fontSize: '30px',
-        fontWeight: 'bold',
-        lineHeight: '1'
-    };
-
-    const estiloBotonCompleto = {
-        display: 'flex', 
-        alignItems: 'center', 
-        cursor: 'pointer',
-        // background: 'rgba(255, 255, 255, 0.8)', 
-        padding: '10px 20px',
-
+        backgroundColor: 'white'
     };
 
     return (
-        <>
-            {/* ESTRATEGIA NUEVA: La imagen va suelta aquí, no como background */}
-            <img src={fondoPantalla} alt="Fondo" style={estiloImagenFondo} />
-
-            {/* Aquí va todo tu contenido normal */}
-            <div style={estiloContenido}>
+        <div style={estiloFondoAnimado}>
+            <div style={estiloTarjetaCentral}>
                 
-                <h1 style={{ backgroundColor: 'rgba(255,255,255,0.7)', padding: '5px', borderRadius: '10px', textAlign: 'center', width: '350px', marginTop:'-280px' }}>
+                <h1 style={estiloTitulo}>
                     ¿Quieres ser mi San Valentín?
                 </h1>
 
-                {/* {foto && <img src={foto} alt='Home' style={{ width: '200px', marginBottom: '20px', borderRadius: '15px' }} />} */}
-
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '50px',marginTop:'60px'  }}>
+                <div style={contenedorOpciones}>
                     
                     {/* --- OPCIÓN SÍ --- */}
-                    <div onClick={clickSi} style={estiloBotonCompleto}>
-                        <div style={estiloCuadro}>
-                            {seleccion === 'SI' && <span style={estiloX}>X</span>}
+                    <div onClick={clickSi} style={estiloBotonOpcion(seleccion === 'SI')}>
+                        <div style={estiloCheckbox}>
+                            {seleccion === 'SI' && <span style={{ fontWeight: '900', fontSize: '20px' }}>✓</span>}
                         </div>
-                        <h2 style={{ margin: 0 }}>SÍ</h2>
+                        <h2 style={{ margin: 0, fontSize: '1.5rem', fontWeight: '800' }}>SIIIIIIIIIIII</h2>
                     </div>
 
                     {/* --- OPCIÓN NO --- */}
-                    <div onClick={clickNo} style={estiloBotonCompleto}>
-                        <div style={estiloCuadro}>
-                            {seleccion === 'NO' && <span style={estiloX}>X</span>}
+                    <div onClick={clickNo} style={estiloBotonOpcion(seleccion === 'NO')}>
+                        <div style={estiloCheckbox}>
+                            {seleccion === 'NO' && <span style={{ fontWeight: '900', fontSize: '20px' }}>✗</span>}
                         </div>
-                        <h2 style={{ margin: 0 }}>Si mi amor</h2>
+                        <h2 style={{ margin: 0, fontSize: '1.5rem', fontWeight: '800' }}>Si mi amor, hazme tuya</h2>
                     </div>
 
                 </div>
+
+                <p style={{ marginTop: '30px', fontWeight: '600', color: '#666' }}>
+                    Aqui no se acepta un no por respuesta reina
+                </p>
             </div>
-        </>
+        </div>
     );
 }
 

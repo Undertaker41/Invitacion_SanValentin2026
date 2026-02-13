@@ -7,7 +7,7 @@ function PaginaSi() {
             <div className="si-card">
                 
                 {/* Título animado */}
-                <h1 className="titulo-celebracion">¡Uy ñomio! 🐭💖</h1>
+                <h1 className="titulo-celebracion">¡Uy ñomio! </h1>
                 
                 <p className="subtitulo">Que ratoncita, Dios mío.</p>
                 
@@ -17,7 +17,7 @@ function PaginaSi() {
                 </div>
 
                 <div className="texto-final">
-                    <p>Sabía que dirías que sí, mi amor.</p>
+                    <p>Sabía que dirías que sí mi amor.</p>
                     <p className="te-amo">Te amo mucho.</p>
                 </div>
 
