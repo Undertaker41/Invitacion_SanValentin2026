@@ -5,28 +5,24 @@ import HomePage from './HomePage';
 import PaginaSi from './PaginaSi';
 import PaginaNo from './PaginaNo';
 import { Routes, Route,} from "react-router-dom";
+// ... otros imports
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
 
     const login = () => setLoggedIn(true);
-    const logout = () => setLoggedIn(false);
+    // const logout = () => setLoggedIn(false); <-- BORRA O COMENTA ESTA LÍNEA
 
     return (
         <>
-        
-        
             {loggedIn ? (
                 <div>
-                    {/* <LogoutButton logout={logout} /> */}
-                    {/* <HomePage /> */}
+                    {/* Aquí ya tenías todo comentado, por eso logout no se usaba */}
                     <Routes>
-
                         <Route path="/" element={<HomePage />} />
                         <Route path="/si" element={<PaginaSi />} />
                         <Route path="/no" element={<PaginaNo />} />
                         <Route path="*" element={<HomePage />} />
                     </Routes>
-
                 </div>
             ) : (
               <div>
