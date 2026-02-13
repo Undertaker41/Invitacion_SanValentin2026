@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from "react-router-dom"; // Si no usas el link por ahora, puedes comentarlo
 import foto from "./assets/image1.png"; 
 import './PaginaSi.css'; // ¡Importante importar el CSS!
 
