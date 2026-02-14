@@ -105,7 +105,7 @@ function HomePage() {
                         <div style={estiloCheckbox}>
                             {seleccion === 'NO' && <span style={{ fontWeight: '900', fontSize: '20px' }}>✗</span>}
                         </div>
-                        <h2 style={{ margin: 0, fontSize: '1.5rem', fontWeight: '800' }}>Si mi amor, hazme tuya</h2>
+                        <h2 style={{ margin: 0, fontSize: '1.5rem', fontWeight: '800' }}>Casemonos de una vez </h2>
                     </div>
 
                 </div>
